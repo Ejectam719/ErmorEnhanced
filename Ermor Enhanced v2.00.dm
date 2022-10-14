@@ -1,39 +1,62 @@
-#modname "Ermor Enhanced v1.10"
-#description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，允许污染炽热正义之堂，允许将食尸鬼转化为裂魂食尸鬼。"
-#version 1.10
+#modname "Ermor Enhanced v2.00"
+#description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，允许污染炽热正义之堂，允许将食尸鬼转化为裂魂食尸鬼，允许久死者和无魂者晋升。"
+#version 2.00
 
 --DEBUG
 --#selectnation 44
 --#startsite "炽热正义之堂"
 --#end
 
+-- #newspell
+-- #copyspell 293
+-- #name "debug summon"
+-- #descr "debug summon"
+-- #researchlevel 0
+-- #pathlevel 0 1
+-- #fatiguecost 100
+-- #damage -2500
+-- #nreff 25
+-- #end
+
 ----------Unit-----------
 
-
--- 邪坟骑士
 #selectmonster 184
 #fear 5
 #formationfighter 3
 #end
 
--- 久死军团轻步兵
 #selectmonster 186
 #formationfighter 2
 #end
 
--- 久死军团兵
 #selectmonster 187
 #formationfighter 2
 #end
 
--- 久死军团后备兵
+#selectmonster 914
+#name "无魂战士"
+#montag 2500
+#end
+
+#selectmonster 915
+#montag 2500
+#end
+
 #selectmonster 1657
+#name "久死军团重步兵"
 #formationfighter 4
 #end
 
--- 久死军团壮年兵
 #selectmonster 1658
+#name "久死军团剑盾手"
+#clearweapons
+#weapon 8
+#weapon 21
 #formationfighter 2
+#end
+
+#selectmonster 2124
+#name "久死者重剑士"
 #end
 
 #newmonster 4184
@@ -63,6 +86,21 @@
 #cold 3
 #end
 
+#newmonster 4000
+#copystats 198
+#copyspr 2212
+#name "裂魂食尸鬼原型体"
+#unique
+#end
+
+#newmonster 4001
+#copystats 2119
+#spr1 "Ermor Enhanced\Monster\4001_1.tga"
+#spr2 "Ermor Enhanced\Monster\4001_2.tga"
+#clearweapons
+#weapon 1
+#end
+
 #newmonster 4198
 #copystats 2212
 #copyspr 2212
@@ -87,13 +125,6 @@
 #voidsanity 5
 #end
 
-#newmonster 4000
-#copystats 198
-#copyspr 2212
-#name "裂魂食尸鬼原型体"
-#unique
-#end
-
 ----------Site-----------
 
 
@@ -107,6 +138,7 @@
 #rarity 5
 #deathrange 3
 #blessdtv 2
+#blessmr 1
 #temple
 #end
 
@@ -410,7 +442,6 @@
 #assassin 2212
 #code -400
 #flagland 1
-#delay 1
 #end
 
 #newevent
@@ -526,3 +557,493 @@
 #1unit 4198
 #end
 
+-----久死者晋升-----
+
+--矛
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_5monsters 196
+--#msg "久死者矛手晋升1"
+#notext
+#nolog
+#killmon 196
+#killmon 196
+#killmon 196
+#killmon 196
+#killmon 196
+#nation 44
+#1unit 2120
+#1unit 2120
+#1unit 2120
+#1unit 2120
+#1unit 2120
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_5monsters 196
+--#msg "久死者矛手晋升1"
+#notext
+#nolog
+#killmon 196
+#killmon 196
+#killmon 196
+#killmon 196
+#killmon 196
+#nation 44
+#1unit 2120
+#1unit 2120
+#1unit 2120
+#1unit 2120
+#1unit 2120
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_5monsters 2120
+--#msg "久死者矛手晋升2"
+#notext
+#nolog
+#killmon 2120
+#killmon 2120
+#killmon 2120
+#killmon 2120
+#killmon 2120
+#nation 44
+#1unit 195
+#1unit 195
+#1unit 195
+#1unit 195
+#1unit 195
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 2120
+--#msg "久死者矛手晋升2"
+#notext
+#nolog
+#killmon 2120
+#killmon 2120
+#nation 44
+#1unit 195
+#1unit 195
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_5monsters 195
+--#msg "久死者矛手矛手晋升3"
+#notext
+#nolog
+#killmon 195
+#killmon 195
+#killmon 195
+#killmon 195
+#killmon 195
+#nation 44
+#1unit 2121
+#1unit 2121
+#1unit 2121
+#1unit 2121
+#1unit 2121
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_monster 195
+--#msg "久死者矛手晋升3"
+#notext
+#nolog
+#killmon 195
+#nation 44
+#1unit 2121
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 2121
+--#msg "久死者长矛手晋升"
+#notext
+#nolog
+#killmon 2121
+#killmon 2121
+#nation 44
+#1unit 2451
+#1unit 2451
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 2121
+--#msg "久死者长矛手晋升"
+#notext
+#nolog
+#killmon 2121
+#killmon 2121
+#nation 44
+#1unit 2451
+#1unit 2451
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 2451
+--#msg "久死者重装步兵晋升"
+#notext
+#nolog
+#killmon 2451
+#killmon 2451
+#nation 44
+#1unit 2122
+#1unit 2122
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_monster 2122
+--#msg "久死者军团晋升"
+#notext
+#nolog
+#killmon 2122
+#nation 44
+#1unit 1657
+#code -402
+#resetcodedelay -402
+#end
+
+--剑
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_5monsters 194
+--#msg "久死者剑士晋升1"
+#notext
+#nolog
+#killmon 194
+#killmon 194
+#killmon 194
+#killmon 194
+#killmon 194
+#nation 44
+#1unit 193
+#1unit 193
+#1unit 193
+#1unit 193
+#1unit 193
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 194
+--#msg "久死者剑士晋升1"
+#notext
+#nolog
+#killmon 194
+#killmon 194
+#nation 44
+#1unit 193
+#1unit 193
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 193
+--#msg "久死者巨剑士晋升1"
+#notext
+#nolog
+#killmon 193
+#killmon 193
+#nation 44
+#1unit 2123
+#1unit 2123
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 193
+--#msg "久死者巨剑士晋升1"
+#notext
+#nolog
+#killmon 193
+#killmon 193
+#nation 44
+#1unit 2123
+#1unit 2123
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 2123
+--#msg "久死者巨剑士晋升2"
+#notext
+#nolog
+#killmon 2123
+#killmon 2123
+#nation 44
+#1unit 2124
+#1unit 2124
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_5monsters 192
+--#msg "久死者剑士晋升2"
+#notext
+#nolog
+#killmon 192
+#killmon 192
+#killmon 192
+#killmon 192
+#killmon 192
+#nation 44
+#1unit 191
+#1unit 191
+#1unit 191
+#1unit 191
+#1unit 191
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_monster 192
+--#msg "久死者剑士晋升2"
+#notext
+#nolog
+#killmon 192
+#nation 44
+#1unit 191
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 191
+--#msg "久死军团晋升"
+#notext
+#nolog
+#killmon 191
+#killmon 191
+#nation 44
+#1unit 1658
+#1unit 1658
+#code -402
+#resetcodedelay -402
+#end
+
+--久死军团
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 186
+--#msg "久死军团兵晋升"
+#notext
+#nolog
+#killmon 186
+#killmon 186
+#nation 44
+#1unit 187
+#1unit 187
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 186
+--#msg "久死军团兵晋升"
+#notext
+#nolog
+#killmon 186
+#killmon 186
+#nation 44
+#1unit 187
+#1unit 187
+#code -402
+#resetcodedelay -402
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_code -402
+#msg "用本地的资源为部分久死者提供了装备。"
+#end
+
+--无魂者
+--197 914
+--197 915 2119
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_5monsters 197
+--#msg "无魂者晋升"
+#notext
+#nolog
+#killmon 197
+#killmon 197
+#killmon 197
+#killmon 197
+#killmon 197
+#nation 44
+#1unit -2500
+#1unit -2500
+#1unit -2500
+#1unit -2500
+#1unit -2500
+#code -403
+#resetcodedelay -403
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 197
+--#msg "无魂者晋升"
+#notext
+#nolog
+#killmon 197
+#killmon 197
+#nation 44
+#1unit -2500
+#1unit -2500
+#code -403
+#resetcodedelay -403
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 914
+--#msg "无魂者晋升"
+#notext
+#nolog
+#killmon 914
+#killmon 914
+#nation 44
+#1unit 4001
+#1unit 4001
+#code -403
+#resetcodedelay -403
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_fort 1
+#req_land 1
+#req_2monsters 915
+--#msg "无魂者晋升"
+#notext
+#nolog
+#killmon 915
+#killmon 915
+#nation 44
+#1unit 2119
+#1unit 2119
+#code -403
+#resetcodedelay -403
+#end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_code -403
+#msg "用本地的资源为部分无魂者提供了装备。"
+#end
