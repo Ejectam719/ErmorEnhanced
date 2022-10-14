@@ -1,6 +1,6 @@
-#modname "Ermor Enhanced v3.10"
-#description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，允许污染炽热正义之堂，允许摧毁皇家学院，允许将食尸鬼转化为裂魂食尸鬼，允许久死者和无魂者晋升。"
-#version 3.10
+#modname "Ermor Enhanced v4.00"
+#description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，允许污染炽热正义之堂，允许摧毁皇家学院，允许召唤建筑师亡魂，允许将食尸鬼转化为裂魂食尸鬼，允许久死者和无魂者晋升。增加专属准神死亡化身。"
+#version 4.00
 
 --DEBUG
 -- #selectnation 44
@@ -26,6 +26,44 @@
 -- #magicitem 9
 -- #end
 
+----------Weapon-----------
+
+
+
+#newweapon 1555
+#copyweapon 310 -- Infernal Scythe
+#name "夺魂之镰"
+#len 4
+#armorpiercing
+#secondaryeffectalways 194
+#end
+
+
+
+----------Weapon-----------
+
+----------Item-----------
+
+
+
+#selectitem 544
+#name "冥河古卷"
+#constlevel 12
+#mainpath 5
+#mainlevel 5
+#secondarypath 4
+#secondarylevel 5
+#copyspr 430
+#spell "创世记录"
+#onlyundead
+#unique
+#nofind
+#yearaging 1
+#end
+
+
+
+----------Item-----------
 
 ----------Unit-----------
 
@@ -72,7 +110,7 @@
 
 #newmonster 4184
 #copystats 184
-#copyspr 184
+#spr1 "Ermor Enhanced\Monster\4184_1.tga"
 #name "恐怖骑士"
 #descr "恐怖骑士是强大的邪坟骑士团长，现在他们被黑暗魔法复活再次为帝国效忠。他们装备着锈蚀的板甲，在腐烂的马鞍中骑在骷髅马的顶端。看着恐怖骑士便是直面最深的恐惧，只有那些勇气卓绝者才能在战斗中与骑士交锋。恐怖骑士只能用强力的魔法复活。他们与幽冥世界紧密相连，环绕着令人麻痹的寒风。恐怖骑士是被魔法强化了骨骼的骷髅亡灵，但他们依旧脆弱。"
 #expertundeadleader
@@ -140,7 +178,6 @@
 
 #newmonster 4002
 #copystats 396
-#copyspr 396
 #spr1 "Ermor Enhanced\Monster\4002_1.tga"
 #spr2 "Ermor Enhanced\Monster\4002_2.tga"
 #name "建筑师亡魂"
@@ -153,11 +190,52 @@
 #mason
 #end
 
+#newmonster 4872
+#copystats 392 -- Ashen Angel
+#spr1 "Ermor Enhanced\God\4872_1.tga"
+#spr2 "Ermor Enhanced\God\4872_2.tga"
+#name "死亡化身"
+#fixedname "夜星"
+#descr "祂是死亡本身的人格具现之一，如今因某种原因降临到凡间成为准神，祂将要在凡间播洒死亡与恐惧。"
+#clearweapons
+#weapon 1555 -- Scythe of the Reaper
+-- #itemslots 65310 -- 4 hands,3 heads,body,feet,4 misc
+#maxage 10000
+#size 2
+#mr 18
+#coldres 25
+#cold 3
+#fear 10
+#damagerev 3
+#raiseonkill 50
+#deathcurse
+#immortal
+#reformtime -2
+#incscale 3 -- DEBUFF
+#popkill 444 -- DEBUFF
+#domsummon 556
+#gemprod 5 4
+#tmpdeathgems 10
+#gcost 40
+#pathcost 10
+#startdom 4
+#magicskill 4 3
+#magicskill 5 6
+#magicskill 6 3
+#magicskill 7 3
+#nowish
+#startitem 544
+#end
+
 
 
 ----------Site-----------
 
 
+
+#selectsite 24
+#blessdtv 2
+#end
 
 #newsite 1500
 #name "被污染的正义之堂"
@@ -187,9 +265,10 @@
 
 
 
--- #selectnation 44
--- #addrecunit 4198
--- #end
+#selectnation 44
+#addgod 4872
+#cheapgod40 4872
+#end
 
 
 
