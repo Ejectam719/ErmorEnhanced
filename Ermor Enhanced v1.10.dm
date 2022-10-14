@@ -1,6 +1,6 @@
-#modname "Ermor Enhanced v1.00"
-#description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，提供裂魂食尸鬼的招募，允许污染炽热正义之堂。"
-#version 1.00
+#modname "Ermor Enhanced v1.10"
+#description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，允许污染炽热正义之堂，允许将食尸鬼转化为裂魂食尸鬼。"
+#version 1.10
 
 --DEBUG
 --#selectnation 44
@@ -69,6 +69,7 @@
 #name "裂魂食尸鬼"
 #descr "惧魔中有一种被称为裂魂者的存在，其形态结构与食尸鬼较为接近。死灵法师们通过研究这种惧魔，成功创造出了更加强大的食尸鬼。裂魂食尸鬼是获得了部分惧魔的能力的不死生物。"
 #req_lab
+#okundeadleader
 #clearweapons
 #weapon 43
 #hp 10
@@ -86,17 +87,12 @@
 #voidsanity 5
 #end
 
--- #clearspec
--- #undead
--- #pooramphibian
--- #pierceres
--- #neednoteat
--- #poisonres 25
--- #darkvision 100
--- #magicpower 0
--- #fear 5
--- #voidsanity 5
-
+#newmonster 4000
+#copystats 198
+#copyspr 2212
+#name "裂魂食尸鬼原型体"
+#unique
+#end
 
 ----------Site-----------
 
@@ -118,9 +114,9 @@
 ----------Nation-----------
 
 
-#selectnation 44
-#addrecunit 4198
-#end
+-- #selectnation 44
+-- #addrecunit 4198
+-- #end
 
 
 ----------Spell-----------
@@ -193,6 +189,7 @@
 
 ----------Event-----------
 
+-----污染正义之堂-1-----
 
 #newevent
 #rarity 5
@@ -208,7 +205,7 @@
 #code -444
 #end
 
-----------
+-----污染正义之堂-2-----
 
 #newevent
 #rarity 5
@@ -277,7 +274,7 @@
 #req_fullowner 44
 #req_targorder 100
 #req_commander 1
-#req_pathholy 8 3
+#req_pathholy 3
 #msg "你一名虔诚的死亡牧师以你的名义开始污染炽热正义之堂，受到邪神力量浸染的圣火苏醒了，火焰之灵开始反抗。[炽热正义之堂]" --The House of Fiery Justice
 #nation 50
 #com 2626
@@ -296,7 +293,7 @@
 #req_fullowner 44
 #req_targorder 108
 #req_commander 1
-#req_pathdeath 5 5
+#req_pathdeath 5
 #msg "你一名强大的死灵法师用死灵魔法开始污染炽热正义之堂，受到邪恶魔法浸染的圣火苏醒了，火焰之灵开始剧烈地反抗。[炽热正义之堂]" --The House of Fiery Justice
 #nation 50
 #com 2626
@@ -306,7 +303,7 @@
 #code -447
 #end
 
-----------
+-----污染正义之堂-3-----
 
 #newevent
 #rarity 5
@@ -357,7 +354,7 @@
 #req_fullowner 44
 #req_nomonster 2626
 #req_commander 1
-#req_pathholy 8 3
+#req_pathholy 3
 #msg "你一名虔诚的死亡牧师成功以你的名义污染了炽热正义之堂！这一过程也让他更深刻得体悟你的伟力。[炽热正义之堂]" --The House of Fiery Justice
 #incscale 2
 #incscale 3
@@ -378,7 +375,7 @@
 #req_fullowner 44
 #req_nomonster 2626
 #req_commander 1
-#req_pathdeath 5 5
+#req_pathdeath 5
 #msg "你一名强大的死灵法师成功以死灵魔法污染了炽热正义之堂！这一过程也让他在火焰和死亡魔法上有了更深的理解。[炽热正义之堂]" --The House of Fiery Justice
 #incscale 2
 #incscale 3
@@ -391,3 +388,141 @@
 #flagland 0
 #code 0
 #end
+
+-----转变食尸鬼-----
+
+-- #newevent
+-- #rarity 5
+-- #req_fornation 44
+-- #req_turn 3
+-- #req_unique 1
+-- #msg "debug[无光灯笼]"
+-- #magicitem 9
+-- #end
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_targitem 337
+#req_unique 1
+#msg "无光灯笼的光芒吸引了惧魔的袭击！"
+#tempunits 1
+#assassin 2212
+#code -400
+#flagland 1
+#delay 1
+#end
+
+#newevent
+#rarity 5
+#req_code -400
+#req_fornation 44
+#req_unique 1
+#msg "在遭到了一种被称为裂魂者的惧魔袭击后，帝国的死灵法师们发现它和食尸鬼的形态与构造颇有相似之处。
+于是，死灵法师们就此展开了研究，希望能得到一些有用的成果，用于加强帝国的亡灵大军。"
+#code -401
+#delay25 4
+#end
+
+#newevent
+#rarity 5
+#req_code -401
+#req_fornation 44
+#req_unique 1
+#msg "对于裂魂者的研究成功了！
+死灵法师们成功创造了一种拥有部分裂魂者惧魔能力的食尸鬼。
+这种新型食尸鬼被命名为裂魂食尸鬼，它比普通的食尸鬼更加强大！
+现在，死灵法师们可以在研究的闲暇之余，于实验室中将食尸鬼转化为裂魂食尸鬼了。"
+#nation 44
+#tempunits 1
+#1unit 4000
+#code 0
+#flagland 0
+#end
+
+#newevent
+#rarity 5
+#req_deadmnr 4000
+#req_fornation 44
+#req_targpath1 5
+#req_targorder 4
+#req_targowner 44
+#req_monster 198
+#msg "一些食尸鬼转化为了裂魂食尸鬼。"
+#end
+
+#newevent
+#rarity 5
+#req_deadmnr 4000
+#req_fornation 44
+#req_targpath1 5
+#req_targorder 4
+#req_targowner 44
+#req_monster 198
+#killmon 198
+#notext
+#nolog
+#nation 44
+#1unit 4198
+#end
+
+#newevent
+#rarity 5
+#req_deadmnr 4000
+#req_fornation 44
+#req_targpath1 5
+#req_targorder 4
+#req_targowner 44
+#req_monster 198
+#killmon 198
+#notext
+#nolog
+#nation 44
+#1unit 4198
+#end
+
+#newevent
+#rarity 5
+#req_deadmnr 4000
+#req_fornation 44
+#req_targpath1 5
+#req_targorder 4
+#req_targowner 44
+#req_monster 198
+#killmon 198
+#notext
+#nolog
+#nation 44
+#1unit 4198
+#end
+
+#newevent
+#rarity 5
+#req_deadmnr 4000
+#req_fornation 44
+#req_targpath1 5
+#req_targorder 4
+#req_targowner 44
+#req_monster 198
+#killmon 198
+#notext
+#nolog
+#nation 44
+#1unit 4198
+#end
+
+#newevent
+#rarity 5
+#req_deadmnr 4000
+#req_fornation 44
+#req_targpath1 5
+#req_targorder 4
+#req_targowner 44
+#req_monster 198
+#killmon 198
+#notext
+#nolog
+#nation 44
+#1unit 4198
+#end
+
