@@ -1,12 +1,41 @@
-#modname "厄尔莫的邪坟骑士 v1.00"
+#modname "厄尔莫的邪坟骑士 v1.10"
 #description "将邪坟骑士加入厄尔莫的亡灵召唤体系。"
-#version 1.00
+#version 1.10
+
+-- #selectsite 24
+-- #blessdtv 2
+-- #end
+
+#newmonster 4198
+#copystats 2212
+#copyspr 2212
+#name "裂魂食尸鬼"
+#descr "惧魔中有一种被称为裂魂者的存在，其形态结构与食尸鬼较为接近。死灵法师们通过研究这种惧魔，成功创造出了更加强大的食尸鬼。裂魂食尸鬼是获得了部分惧魔的能力的不死生物。"
+#req_lab
+#clearweapons
+#weapon 43
+#str 12
+#att 12
+#prot 5
+#mapmove 18
+#maxage 500
+#clearspec
+#undead
+#pooramphibian
+#pierceres
+#neednoteat
+#poisonres 25
+#darkvision 100
+#magicpower 0
+#fear 5
+#voidsanity 0
+#end
 
 #selectmonster 184
 #fear 5
 #end
 
-#newmonster 4444
+#newmonster 4184
 #copystats 184
 #copyspr 184
 #name "恐怖骑士"
@@ -27,6 +56,8 @@
 #inanimate
 #neednoteat
 #spiritsight
+#coldres 15
+#poisonres 25
 #fear 7
 #cold 3
 #end
