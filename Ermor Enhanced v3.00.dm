@@ -1,11 +1,11 @@
-#modname "Ermor Enhanced v2.10"
-#description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，允许污染炽热正义之堂，允许将食尸鬼转化为裂魂食尸鬼，允许久死者和无魂者晋升。"
-#version 2.10
+#modname "Ermor Enhanced v3.00"
+#description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，允许污染炽热正义之堂，允许摧毁皇家学院，允许将食尸鬼转化为裂魂食尸鬼，允许久死者和无魂者晋升。"
+#version 3.00
 
 --DEBUG
---#selectnation 44
---#startsite "炽热正义之堂"
---#end
+-- #selectnation 44
+-- #startsite "皇家学院"
+-- #end
 
 -- #newspell
 -- #copyspell 293
@@ -18,7 +18,11 @@
 -- #nreff 25
 -- #end
 
+
+
 ----------Unit-----------
+
+
 
 #selectmonster 184
 #fear 5
@@ -63,7 +67,7 @@
 #copystats 184
 #copyspr 184
 #name "恐怖骑士"
-#descr "恐怖骑士是强大的邪坟骑士团长，现在他们被黑暗魔法复活再次为帝国效忠。他们装备着锈蚀的板甲，在腐烂的马鞍中骑在骷髅马的顶端。看着邪坟骑士便是直面来自坟墓的恐惧，只有那些确信自身殉难者才能在战斗中与骑士交锋。恐怖骑士只能用强力的魔法复活。他们与幽冥世界紧密相连，环绕着令人麻痹的寒风。恐怖骑士是被魔法强化了骨骼的骷髅亡灵，但他们依旧脆弱。"
+#descr "恐怖骑士是强大的邪坟骑士团长，现在他们被黑暗魔法复活再次为帝国效忠。他们装备着锈蚀的板甲，在腐烂的马鞍中骑在骷髅马的顶端。看着恐怖骑士便是直面最深的恐惧，只有那些勇气卓绝者才能在战斗中与骑士交锋。恐怖骑士只能用强力的魔法复活。他们与幽冥世界紧密相连，环绕着令人麻痹的寒风。恐怖骑士是被魔法强化了骨骼的骷髅亡灵，但他们依旧脆弱。"
 #expertundeadleader
 #hp 10
 #str 12
@@ -79,26 +83,13 @@
 #undead
 #inanimate
 #neednoteat
+#noheal
 #spiritsight
 #coldres 15
 #poisonres 25
 #fear 7
 #cold 3
-#end
-
-#newmonster 4000
-#copystats 198
-#copyspr 2212
-#name "裂魂食尸鬼原型体"
-#unique
-#end
-
-#newmonster 4001
-#copystats 2119
-#spr1 "Ermor Enhanced\Monster\4001_1.tga"
-#spr2 "Ermor Enhanced\Monster\4001_2.tga"
-#clearweapons
-#weapon 1
+#formationfighter 3
 #end
 
 #newmonster 4198
@@ -125,7 +116,40 @@
 #voidsanity 5
 #end
 
+#newmonster 4000
+#copystats 198
+#copyspr 2212
+#name "裂魂食尸鬼原型体"
+#unique
+#end
+
+#newmonster 4001
+#copystats 2119
+#spr1 "Ermor Enhanced\Monster\4001_1.tga"
+#spr2 "Ermor Enhanced\Monster\4001_2.tga"
+#clearweapons
+#weapon 1
+#end
+
+#newmonster 4002
+#copystats 396
+#copyspr 396
+#spr1 "Ermor Enhanced\Monster\4002_1.tga"
+#spr2 "Ermor Enhanced\Monster\4002_2.tga"
+#name "建筑师亡魂"
+#descr "建筑师亡魂由一个玛瑞尼翁皇家学院建筑师的亡灵占据一具尸体而来，具备生前的建筑学知识。"
+#clearmagic
+#clearweapons
+#weapon 638
+#siegebonus 15
+#castledef 15
+#mason
+#end
+
+
+
 ----------Site-----------
+
 
 
 #newsite 1500
@@ -142,8 +166,18 @@
 #temple
 #end
 
+#newsite 1501
+#name "皇家学院遗迹"
+#level 0
+#path 5
+#gems 5 2
+#rarity 5
+#end
+
+
 
 ----------Nation-----------
+
 
 
 -- #selectnation 44
@@ -151,7 +185,9 @@
 -- #end
 
 
+
 ----------Spell-----------
+
 
 
 #newspell
@@ -202,6 +238,15 @@
 #restricted 44 --MA Ermor
 #end
 
+#newspell
+#copyspell 894
+#name "创造建筑师亡魂"
+#descr "死灵法师从皇家学院遗迹召唤出一个徘徊的建筑师灵魂，并使其占据一具人类的尸体。这样创造的亡魂拥有生前的建筑学知识。"
+#damage 4002
+#onlyatsite 1501
+#restricted 44 --MA Ermor
+#end
+
 -- Copy by DE
 -- Alter
 #newspell
@@ -219,9 +264,14 @@
 #end
 
 
+
 ----------Event-----------
 
+
+
+
 -----污染正义之堂-1-----
+
 
 #newevent
 #rarity 5
@@ -237,7 +287,9 @@
 #code -444
 #end
 
+
 -----污染正义之堂-2-----
+
 
 #newevent
 #rarity 5
@@ -335,7 +387,9 @@
 #code -447
 #end
 
+
 -----污染正义之堂-3-----
+
 
 #newevent
 #rarity 5
@@ -421,7 +475,28 @@
 #code 0
 #end
 
+
+-----摧毁皇家学院-----
+
+
+#newevent
+#rarity 5
+#req_fornation 44
+#req_foundsite 1
+#req_fullowner 44
+#req_nonation 50
+#req_capital 1
+#msg "在解决了正义之堂后，你终于有余力处理一些其他的问题，比如……皇家学院。在轻而易举地摧毁了皇家学院后，你收获了不少建筑学方面的资料文献及仪器，利用这些东西或许可以让你的国家像玛瑞尼翁那样拥有更坚固的堡垒。
+坏消息是，你和你的死灵法师们一时看不太懂这些文献，它们属于另一个知识体系；而好消息是，你们可以直接复活一些建筑师来为你们服务，参照这些文献和现成的玛瑞尼翁堡垒，想必复刻应该不算难事……[被污染的正义之堂]"
+#removesite 192
+#addsite 1501
+#nation 44
+#com 4002
+#end
+
+
 -----转变食尸鬼-----
+
 
 -- #newevent
 -- #rarity 5
@@ -471,16 +546,16 @@
 #flagland 0
 #end
 
-#newevent
-#rarity 5
-#req_deadmnr 4000
-#req_fornation 44
-#req_targpath1 5
-#req_targorder 4
-#req_targowner 44
-#req_monster 198
-#msg "一些食尸鬼转化为了裂魂食尸鬼。"
-#end
+-- #newevent
+-- #rarity 5
+-- #req_deadmnr 4000
+-- #req_fornation 44
+-- #req_targpath1 5
+-- #req_targorder 4
+-- #req_targowner 44
+-- #req_monster 198
+-- #msg "一些食尸鬼转化为了裂魂食尸鬼。"
+-- #end
 
 #newevent
 #rarity 5
@@ -556,8 +631,10 @@
 #nation 44
 #1unit 4198
 #end
+
 
 -----久死者晋升-----
+
 
 --矛
 #newevent
@@ -952,16 +1029,14 @@
 #resetcodedelay -402
 #end
 
-#newevent
-#rarity 5
-#req_fornation 44
-#req_code -402
-#msg "用本地的资源为部分久死者提供了装备。"
-#end
+-- #newevent
+-- #rarity 5
+-- #req_fornation 44
+-- #req_code -402
+-- #msg "用本地的资源为部分久死者提供了装备。"
+-- #end
 
 --无魂者
---197 914
---197 915 2119
 
 #newevent
 #rarity 5
@@ -1005,6 +1080,7 @@
 #resetcodedelay -403
 #end
 
+--剑
 #newevent
 #rarity 5
 #req_fornation 44
@@ -1023,6 +1099,7 @@
 #resetcodedelay -403
 #end
 
+--矛
 #newevent
 #rarity 5
 #req_fornation 44
@@ -1041,9 +1118,19 @@
 #resetcodedelay -403
 #end
 
+-- #newevent
+-- #rarity 5
+-- #req_fornation 44
+-- #req_code -403
+-- #msg "用本地的资源为部分无魂者提供了装备。"
+-- #end
+
+
 #newevent
 #rarity 5
 #req_fornation 44
-#req_code -403
-#msg "用本地的资源为部分无魂者提供了装备。"
+#req_owncapital 1
+#req_anycode -402
+#req_anycode -403
+#msg "部分低级亡灵在各地堡垒获得了装备。"
 #end
