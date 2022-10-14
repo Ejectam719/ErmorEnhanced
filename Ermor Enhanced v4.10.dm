@@ -1,6 +1,6 @@
-#modname "Ermor Enhanced v4.00"
+#modname "Ermor Enhanced v4.10"
 #description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，允许污染炽热正义之堂，允许摧毁皇家学院，允许召唤建筑师亡魂，允许将食尸鬼转化为裂魂食尸鬼，允许久死者和无魂者晋升。增加专属准神死亡化身。"
-#version 4.00
+#version 4.10
 
 --DEBUG
 -- #selectnation 44
@@ -21,6 +21,7 @@
 -- #newevent
 -- #rarity 5
 -- #req_fornation 44
+-- #req_pop0ok
 -- #req_unique 1
 -- #msg "debug[无光灯笼]"
 -- #magicitem 9
@@ -190,30 +191,62 @@
 #mason
 #end
 
+#newmonster 4566
+#copystats 566
+#spr1 "Ermor Enhanced\Monster\4566_1.tga"
+#spr2 "Ermor Enhanced\Monster\4566_2.tga"
+#name "幽鬼"
+#descr "幽鬼是徘徊在冥界极深之处的灵魂，只有死亡化身才能将其召唤到凡间，也因此它们被死亡的崇拜者视作神圣的象征。"
+#hp 24
+#mr 16
+#mor 30
+#str 14
+#att 12
+#def 16
+#stealthy 20
+#invulnerable 10
+#saltvul 0
+#darkpower 2
+#holy
+#amphibian
+#flying
+#stormimmune
+#end
+
 #newmonster 4872
 #copystats 392 -- Ashen Angel
 #spr1 "Ermor Enhanced\God\4872_1.tga"
 #spr2 "Ermor Enhanced\God\4872_2.tga"
 #name "死亡化身"
 #fixedname "夜星"
-#descr "祂是死亡本身的人格具现之一，如今因某种原因降临到凡间成为准神，祂将要在凡间播洒死亡与恐惧。"
+#descr "祂是死亡本身的人格具现之一，如今因某种原因降临到凡间。祂将参与真神之位的角逐，并在凡间播洒死亡与恐惧。"
 #clearweapons
 #weapon 1555 -- Scythe of the Reaper
 -- #itemslots 65310 -- 4 hands,3 heads,body,feet,4 misc
-#maxage 10000
 #size 2
 #mr 18
-#coldres 25
-#cold 3
+#clearspec
+#coldres 40
+#poisonres 40
+#stealthy 20
 #fear 10
-#damagerev 3
-#raiseonkill 50
+#invulnerable 40
+#undead
+#ethereal
+#teleport
+#amphibian
+#neednoteat
+#spiritsight
+#maxage 10000
+#cold 3
+#damagerev 4
+#raiseonkill 100
 #deathcurse
 #immortal
 #reformtime -2
-#incscale 3 -- DEBUFF
+#incscale 3 -- DEBUFF?
 #popkill 444 -- DEBUFF
-#domsummon 556
+#domsummon2 4566
 #gemprod 5 4
 #tmpdeathgems 10
 #gcost 40
@@ -363,6 +396,7 @@
 #rarity 5
 #req_code 0
 #req_fornation 44
+#req_pop0ok
 #req_foundsite 1
 #req_fullowner 44
 #req_nonation 50
@@ -381,6 +415,7 @@
 #rarity 5
 #req_code -444
 #req_fornation 44
+#req_pop0ok
 #req_foundsite 1
 #req_fullowner 44
 #req_targorder 105
@@ -405,6 +440,7 @@
 #rarity 5
 #req_code -444
 #req_fornation 44
+#req_pop0ok
 #req_foundsite 1
 #req_fullowner 44
 #req_targorder 100
@@ -422,6 +458,7 @@
 #rarity 5
 #req_code -444
 #req_fornation 44
+#req_pop0ok
 #req_foundsite 1
 #req_fullowner 44
 #req_targorder 100
@@ -440,6 +477,7 @@
 #rarity 5
 #req_code -444
 #req_fornation 44
+#req_pop0ok
 #req_foundsite 1
 #req_fullowner 44
 #req_targorder 100
@@ -459,6 +497,7 @@
 #rarity 5
 #req_code -444
 #req_fornation 44
+#req_pop0ok
 #req_foundsite 1
 #req_fullowner 44
 #req_targorder 108
@@ -481,6 +520,7 @@
 #rarity 5
 #req_code -445
 #req_fornation 44
+#req_pop0ok
 #req_foundsite 1
 #req_fullowner 44
 #req_nomonster 2626
@@ -502,6 +542,7 @@
 #rarity 5
 #req_code -446
 #req_fornation 44
+#req_pop0ok
 #req_foundsite 1
 #req_fullowner 44
 #req_nomonster 2626
@@ -522,6 +563,7 @@
 #rarity 5
 #req_code -446
 #req_fornation 44
+#req_pop0ok
 #req_foundsite 1
 #req_fullowner 44
 #req_nomonster 2626
@@ -543,6 +585,7 @@
 #rarity 5
 #req_code -447
 #req_fornation 44
+#req_pop0ok
 #req_foundsite 1
 #req_fullowner 44
 #req_nomonster 2626
@@ -568,6 +611,7 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_foundsite 1
 #req_fullowner 44
 #req_nonation 50
@@ -588,6 +632,7 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_targitem 337
 #req_unique 1
 #msg "无光灯笼的光芒吸引了惧魔的袭击！"
@@ -601,6 +646,7 @@
 #rarity 5
 #req_code -400
 #req_fornation 44
+#req_pop0ok
 #req_unique 1
 #msg "在遭到了一种被称为裂魂者的惧魔袭击后，帝国的死灵法师们发现它和食尸鬼的形态与构造颇有相似之处。
 于是，死灵法师们就此展开了研究，希望能得到一些有用的成果，用于加强帝国的亡灵大军。"
@@ -612,14 +658,14 @@
 #rarity 5
 #req_code -401
 #req_fornation 44
+#req_pop0ok
 #req_unique 1
 #msg "对于裂魂者的研究成功了！
 死灵法师们成功创造了一种拥有部分裂魂者惧魔能力的食尸鬼。
 这种新型食尸鬼被命名为裂魂食尸鬼，它比普通的食尸鬼更加强大！
 现在，死灵法师们可以在研究的闲暇之余，于实验室中将食尸鬼转化为裂魂食尸鬼了。"
-#nation 44
-#tempunits 1
 #1unit 4000
+#killmon 4000
 #code 0
 #flagland 0
 #end
@@ -628,6 +674,7 @@
 -- #rarity 5
 -- #req_deadmnr 4000
 -- #req_fornation 44
+-- #req_pop0ok
 -- #req_targpath1 5
 -- #req_targorder 4
 -- #req_targowner 44
@@ -639,6 +686,7 @@
 #rarity 5
 #req_deadmnr 4000
 #req_fornation 44
+#req_pop0ok
 #req_targpath1 5
 #req_targorder 4
 #req_targowner 44
@@ -654,6 +702,7 @@
 #rarity 5
 #req_deadmnr 4000
 #req_fornation 44
+#req_pop0ok
 #req_targpath1 5
 #req_targorder 4
 #req_targowner 44
@@ -669,6 +718,7 @@
 #rarity 5
 #req_deadmnr 4000
 #req_fornation 44
+#req_pop0ok
 #req_targpath1 5
 #req_targorder 4
 #req_targowner 44
@@ -684,6 +734,7 @@
 #rarity 5
 #req_deadmnr 4000
 #req_fornation 44
+#req_pop0ok
 #req_targpath1 5
 #req_targorder 4
 #req_targowner 44
@@ -699,6 +750,7 @@
 #rarity 5
 #req_deadmnr 4000
 #req_fornation 44
+#req_pop0ok
 #req_targpath1 5
 #req_targorder 4
 #req_targowner 44
@@ -718,10 +770,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_5monsters 196
---#msg "久死者矛手晋升1"
+--#msg "DEBUG-久死者矛手晋升1"
 #notext
 #nolog
 #killmon 196
@@ -740,10 +793,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_5monsters 196
---#msg "久死者矛手晋升1"
+--#msg "DEBUG-久死者矛手晋升1"
 #notext
 #nolog
 #killmon 196
@@ -762,10 +816,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_5monsters 2120
---#msg "久死者矛手晋升2"
+--#msg "DEBUG-久死者矛手晋升2"
 #notext
 #nolog
 #killmon 2120
@@ -784,10 +839,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 2120
---#msg "久死者矛手晋升2"
+--#msg "DEBUG-久死者矛手晋升2"
 #notext
 #nolog
 #killmon 2120
@@ -800,10 +856,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_5monsters 195
---#msg "久死者矛手矛手晋升3"
+--#msg "DEBUG-久死者矛手矛手晋升3"
 #notext
 #nolog
 #killmon 195
@@ -822,10 +879,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_monster 195
---#msg "久死者矛手晋升3"
+--#msg "DEBUG-久死者矛手晋升3"
 #notext
 #nolog
 #killmon 195
@@ -836,10 +894,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 2121
---#msg "久死者长矛手晋升"
+--#msg "DEBUG-久死者长矛手晋升"
 #notext
 #nolog
 #killmon 2121
@@ -852,10 +911,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 2121
---#msg "久死者长矛手晋升"
+--#msg "DEBUG-久死者长矛手晋升"
 #notext
 #nolog
 #killmon 2121
@@ -868,10 +928,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 2451
---#msg "久死者重装步兵晋升"
+--#msg "DEBUG-久死者重装步兵晋升"
 #notext
 #nolog
 #killmon 2451
@@ -884,10 +945,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_monster 2122
---#msg "久死者军团晋升"
+--#msg "DEBUG-久死者军团晋升"
 #notext
 #nolog
 #killmon 2122
@@ -899,10 +961,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_5monsters 194
---#msg "久死者剑士晋升1"
+--#msg "DEBUG-久死者剑士晋升1"
 #notext
 #nolog
 #killmon 194
@@ -921,10 +984,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 194
---#msg "久死者剑士晋升1"
+--#msg "DEBUG-久死者剑士晋升1"
 #notext
 #nolog
 #killmon 194
@@ -937,10 +1001,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 193
---#msg "久死者巨剑士晋升1"
+--#msg "DEBUG-久死者巨剑士晋升1"
 #notext
 #nolog
 #killmon 193
@@ -953,10 +1018,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 193
---#msg "久死者巨剑士晋升1"
+--#msg "DEBUG-久死者巨剑士晋升1"
 #notext
 #nolog
 #killmon 193
@@ -969,10 +1035,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 2123
---#msg "久死者巨剑士晋升2"
+--#msg "DEBUG-久死者巨剑士晋升2"
 #notext
 #nolog
 #killmon 2123
@@ -985,10 +1052,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_5monsters 192
---#msg "久死者剑士晋升2"
+--#msg "DEBUG-久死者剑士晋升2"
 #notext
 #nolog
 #killmon 192
@@ -1007,10 +1075,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_monster 192
---#msg "久死者剑士晋升2"
+--#msg "DEBUG-久死者剑士晋升2"
 #notext
 #nolog
 #killmon 192
@@ -1021,10 +1090,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 191
---#msg "久死军团晋升"
+--#msg "DEBUG-久死军团晋升"
 #notext
 #nolog
 #killmon 191
@@ -1038,10 +1108,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 186
---#msg "久死军团兵晋升"
+--#msg "DEBUG-久死军团兵晋升"
 #notext
 #nolog
 #killmon 186
@@ -1054,10 +1125,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 186
---#msg "久死军团兵晋升"
+--#msg "DEBUG-久死军团兵晋升"
 #notext
 #nolog
 #killmon 186
@@ -1072,10 +1144,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_5monsters 197
---#msg "无魂者晋升"
+--#msg "DEBUG-无魂者晋升"
 #notext
 #nolog
 #killmon 197
@@ -1094,10 +1167,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 197
---#msg "无魂者晋升"
+--#msg "DEBUG-无魂者晋升"
 #notext
 #nolog
 #killmon 197
@@ -1111,10 +1185,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 914
---#msg "无魂者晋升"
+--#msg "DEBUG-无魂者晋升"
 #notext
 #nolog
 #killmon 914
@@ -1128,10 +1203,11 @@
 #newevent
 #rarity 5
 #req_fornation 44
+#req_pop0ok
 #req_fort 1
 #req_land 1
 #req_2monsters 915
---#msg "无魂者晋升"
+--#msg "DEBUG-无魂者晋升"
 #notext
 #nolog
 #killmon 915
