@@ -1,6 +1,6 @@
-#modname "Ermor Enhanced v2.00"
+#modname "Ermor Enhanced v2.10"
 #description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，允许污染炽热正义之堂，允许将食尸鬼转化为裂魂食尸鬼，允许久死者和无魂者晋升。"
-#version 2.00
+#version 2.10
 
 --DEBUG
 --#selectnation 44
@@ -197,7 +197,7 @@
 #pathlevel 0 2
 #fatiguecost 400
 #effect 10021
-#damage 4444
+#damage 4184
 #nreff 1
 #restricted 44 --MA Ermor
 #end
