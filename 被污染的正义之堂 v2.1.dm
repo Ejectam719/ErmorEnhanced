@@ -1,6 +1,6 @@
-#modname "被污染的正义之堂 v2.00"
+#modname "被污染的正义之堂 v2.10"
 #description "允许厄尔莫污染炽热正义之堂。"
-#version 2.00
+#version 2.10
 
 --DEBUG
 --#selectnation 44
@@ -28,6 +28,7 @@
 #gems 5 4
 #rarity 5
 #deathrange 3
+#blessdtv 2
 #temple
 #end
 
