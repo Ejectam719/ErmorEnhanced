@@ -1,6 +1,6 @@
-#modname "Ermor Enhanced v4.10"
+#modname "Ermor Enhanced v4.20"
 #description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，允许污染炽热正义之堂，允许摧毁皇家学院，允许召唤建筑师亡魂，允许将食尸鬼转化为裂魂食尸鬼，允许久死者和无魂者晋升。增加专属准神死亡化身。"
-#version 4.10
+#version 4.20
 
 --DEBUG
 -- #selectnation 44
@@ -244,8 +244,8 @@
 #deathcurse
 #immortal
 #reformtime -2
-#incscale 3 -- DEBUFF?
-#popkill 444 -- DEBUFF
+#incscale 3 -- DEBUFF
+#popkill 44 -- DEBUFF
 #domsummon2 4566
 #gemprod 5 4
 #tmpdeathgems 10
@@ -285,7 +285,7 @@
 #end
 
 #newsite 1501
-#name "皇家学院遗迹"
+#name "皇家学院遗址"
 #level 0
 #path 5
 #gems 5 2
@@ -360,7 +360,7 @@
 #newspell
 #copyspell 894
 #name "创造建筑师亡魂"
-#descr "死灵法师从皇家学院遗迹召唤出一个徘徊的建筑师灵魂，并使其占据一具人类的尸体。这样创造的亡魂拥有生前的建筑学知识。"
+#descr "死灵法师从皇家学院遗址召唤出一个徘徊的建筑师灵魂，并使其占据一具人类的尸体。这样创造的亡魂拥有生前的建筑学知识。"
 #damage 4002
 #onlyatsite 1501
 #restricted 44 --MA Ermor
