@@ -1,6 +1,6 @@
-#modname "Ermor Enhanced v3.00"
+#modname "Ermor Enhanced v3.10"
 #description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，允许污染炽热正义之堂，允许摧毁皇家学院，允许将食尸鬼转化为裂魂食尸鬼，允许久死者和无魂者晋升。"
-#version 3.00
+#version 3.10
 
 --DEBUG
 -- #selectnation 44
@@ -18,6 +18,13 @@
 -- #nreff 25
 -- #end
 
+-- #newevent
+-- #rarity 5
+-- #req_fornation 44
+-- #req_unique 1
+-- #msg "debug[无光灯笼]"
+-- #magicitem 9
+-- #end
 
 
 ----------Unit-----------
@@ -486,6 +493,7 @@
 #req_fullowner 44
 #req_nonation 50
 #req_capital 1
+#req_unique 1
 #msg "在解决了正义之堂后，你终于有余力处理一些其他的问题，比如……皇家学院。在轻而易举地摧毁了皇家学院后，你收获了不少建筑学方面的资料文献及仪器，利用这些东西或许可以让你的国家像玛瑞尼翁那样拥有更坚固的堡垒。
 坏消息是，你和你的死灵法师们一时看不太懂这些文献，它们属于另一个知识体系；而好消息是，你们可以直接复活一些建筑师来为你们服务，参照这些文献和现成的玛瑞尼翁堡垒，想必复刻应该不算难事……[被污染的正义之堂]"
 #removesite 192
@@ -497,15 +505,6 @@
 
 -----转变食尸鬼-----
 
-
--- #newevent
--- #rarity 5
--- #req_fornation 44
--- #req_turn 3
--- #req_unique 1
--- #msg "debug[无光灯笼]"
--- #magicitem 9
--- #end
 
 #newevent
 #rarity 5
@@ -657,8 +656,6 @@
 #1unit 2120
 #1unit 2120
 #1unit 2120
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -681,8 +678,6 @@
 #1unit 2120
 #1unit 2120
 #1unit 2120
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -705,8 +700,6 @@
 #1unit 195
 #1unit 195
 #1unit 195
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -723,8 +716,6 @@
 #nation 44
 #1unit 195
 #1unit 195
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -747,8 +738,6 @@
 #1unit 2121
 #1unit 2121
 #1unit 2121
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -763,8 +752,6 @@
 #killmon 195
 #nation 44
 #1unit 2121
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -781,8 +768,6 @@
 #nation 44
 #1unit 2451
 #1unit 2451
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -799,8 +784,6 @@
 #nation 44
 #1unit 2451
 #1unit 2451
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -817,8 +800,6 @@
 #nation 44
 #1unit 2122
 #1unit 2122
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -833,8 +814,6 @@
 #killmon 2122
 #nation 44
 #1unit 1657
-#code -402
-#resetcodedelay -402
 #end
 
 --剑
@@ -858,8 +837,6 @@
 #1unit 193
 #1unit 193
 #1unit 193
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -876,8 +853,6 @@
 #nation 44
 #1unit 193
 #1unit 193
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -894,8 +869,6 @@
 #nation 44
 #1unit 2123
 #1unit 2123
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -912,8 +885,6 @@
 #nation 44
 #1unit 2123
 #1unit 2123
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -930,8 +901,6 @@
 #nation 44
 #1unit 2124
 #1unit 2124
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -954,8 +923,6 @@
 #1unit 191
 #1unit 191
 #1unit 191
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -970,8 +937,6 @@
 #killmon 192
 #nation 44
 #1unit 191
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -988,8 +953,6 @@
 #nation 44
 #1unit 1658
 #1unit 1658
-#code -402
-#resetcodedelay -402
 #end
 
 --久死军团
@@ -1007,8 +970,6 @@
 #nation 44
 #1unit 187
 #1unit 187
-#code -402
-#resetcodedelay -402
 #end
 
 #newevent
@@ -1025,16 +986,7 @@
 #nation 44
 #1unit 187
 #1unit 187
-#code -402
-#resetcodedelay -402
 #end
-
--- #newevent
--- #rarity 5
--- #req_fornation 44
--- #req_code -402
--- #msg "用本地的资源为部分久死者提供了装备。"
--- #end
 
 --无魂者
 
@@ -1058,8 +1010,6 @@
 #1unit -2500
 #1unit -2500
 #1unit -2500
-#code -403
-#resetcodedelay -403
 #end
 
 #newevent
@@ -1076,8 +1026,6 @@
 #nation 44
 #1unit -2500
 #1unit -2500
-#code -403
-#resetcodedelay -403
 #end
 
 --剑
@@ -1095,8 +1043,6 @@
 #nation 44
 #1unit 4001
 #1unit 4001
-#code -403
-#resetcodedelay -403
 #end
 
 --矛
@@ -1114,23 +1060,4 @@
 #nation 44
 #1unit 2119
 #1unit 2119
-#code -403
-#resetcodedelay -403
-#end
-
--- #newevent
--- #rarity 5
--- #req_fornation 44
--- #req_code -403
--- #msg "用本地的资源为部分无魂者提供了装备。"
--- #end
-
-
-#newevent
-#rarity 5
-#req_fornation 44
-#req_owncapital 1
-#req_anycode -402
-#req_anycode -403
-#msg "部分低级亡灵在各地堡垒获得了装备。"
 #end
