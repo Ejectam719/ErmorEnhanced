@@ -46,9 +46,8 @@
 ----------Item-----------
 
 
-#newitem
-#selectitem "冥河古文录"
---#name "冥河古文录"
+#selectitem 544
+#name "冥河古文录"
 #descr "这册随冥河一同诞生的古文书上记载着古往今来所有逝者的记忆。
 永不停息的冥河将逝者的魂灵带往冥界，也将逝者生前的记忆冲刷褪去。
 持有者会受到冥河的召唤，因此只有死者可以使用。"
@@ -260,7 +259,7 @@
 #magicskill 6 3
 #magicskill 7 3
 #nowish
-#startitem "冥河古文录"
+#startitem 544
 #end
 
 
