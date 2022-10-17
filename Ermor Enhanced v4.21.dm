@@ -1,6 +1,6 @@
-#modname "Ermor Enhanced v4.20"
+#modname "Ermor Enhanced v4.21"
 #description "对邪坟骑士、久死军团的能力稍作调整，将邪坟骑士加入厄尔莫的亡灵召唤体系，允许污染炽热正义之堂，允许摧毁皇家学院，允许召唤建筑师亡魂，允许将食尸鬼转化为裂魂食尸鬼，允许久死者和无魂者晋升。增加专属准神死亡化身。"
-#version 4.20
+#version 4.21
 
 --DEBUG
 -- #selectnation 44
@@ -46,9 +46,12 @@
 ----------Item-----------
 
 
-
-#selectitem 544
-#name "冥河古卷"
+#newitem
+#selectitem "冥河古文录"
+--#name "冥河古文录"
+#descr "这册随冥河一同诞生的古文书上记载着古往今来所有逝者的记忆。
+永不停息的冥河将逝者的魂灵带往冥界，也将逝者生前的记忆冲刷褪去。
+持有者会受到冥河的召唤，因此只有死者可以使用。"
 #constlevel 12
 #mainpath 5
 #mainlevel 5
@@ -57,9 +60,9 @@
 #copyspr 430
 #spell "创世记录"
 #onlyundead
+#yearaging 9
 #unique
 #nofind
-#yearaging 1
 #end
 
 
@@ -257,7 +260,7 @@
 #magicskill 6 3
 #magicskill 7 3
 #nowish
-#startitem 544
+#startitem "冥河古文录"
 #end
 
 
